@@ -26,8 +26,12 @@ while game_is_on:
     for car in car_manager.all_cars:
         if car.distance(iota) < 20:
             game_is_on = False
+            scoreboard.game_over()
 
     #Detect a successful crossing
     if iota.is_at_finish_line():
         iota.go_to_start()
         car_manager.level_up()
+        scoreboard.increase_level()
+
+screen.exitonclick()
