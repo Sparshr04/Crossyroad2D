@@ -10,17 +10,19 @@ class Player(Turtle):
         super().__init__(shape, undobuffersize, visible)
         self.shape('turtle')
         self.pu()
-        self.goto(STARTING_POSITION)
+        self.go_to_start()
         self.left(90)
 
 
     def move_up(self):
         self.forward(10)
 
-    def finished_stage(self):
+    def go_to_start(self):
+        self.goto(STARTING_POSITION)
+
+    def is_at_finish_line(self):
         if self.ycor() > FINISH_LINE_Y:
-            self.goto(STARTING_POSITION)
             return True
         else:
-            pass
+            return False
 
